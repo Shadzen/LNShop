@@ -1,3 +1,3 @@
 # LNShop
-Lucky Nails Shop
-Created with Nuxt.js
+# Lucky Nails Shop
+# Created with Nuxt.js
