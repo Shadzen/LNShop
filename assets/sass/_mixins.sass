@@ -1,0 +1,36 @@
+@import variables
+
+%absDefault
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+%centerX
+  position: absolute
+  left: 50%
+  transform: translate(-50%, 0)
+
+=aFontSize($fontSize)
+  $screenWidth: $screenWidth - 40
+  font-size: ($fontSize + px) !important
+  @media screen and (max-width: $screenWidth + px)
+    font-size: calc(100vw / (#{$screenWidth} / #{$fontSize})) !important
+
+@function hpx($value)
+  @return percentage($screenWidth / $screenHeight) / $screenWidth * $value
+
+@function vwpx($value)
+  @return calc(100vw / (#{$screenWidth} / #{$value}))
+
+@function aW($value)
+  @return percentage($value / $screenWidth)
+
+@mixin bgImg($path, $fileType)
+  background-image: url($path + '.' + $fileType) !important
+  @media (-webkit-min-device-pixel-ratio: 2)
+    background-image: url($path + '_x2' + '.' + $fileType) !important
+
+=textBorder($borderSize: 0, $borderColor: white)
+  text-shadow: -#{$borderSize} -#{$borderSize} 0 $borderColor, $borderSize -#{$borderSize} 0 $borderColor, -#{$borderSize} $borderSize 0 $borderColor, $borderSize $borderSize 0 $borderColor
