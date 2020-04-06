@@ -1,2 +1,0 @@
-# LNShop
-Lucky Nails Shop
