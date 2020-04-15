@@ -1,5 +1,10 @@
 @import variables
 
+%fc
+  display: flex
+  align-items: center
+  justify-content: center
+
 %absDefault
   position: absolute
   bottom: 0
@@ -13,7 +18,7 @@
   transform: translate(-50%, 0)
 
 =aFontSize($fontSize)
-  $screenWidth: $screenWidth - 40
+  //$screenWidth: $screenWidth - 40
   font-size: ($fontSize + px) !important
   @media screen and (max-width: $screenWidth + px)
     font-size: calc(100vw / (#{$screenWidth} / #{$fontSize})) !important
