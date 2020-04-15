@@ -1,8 +1,12 @@
 
 export default {
   mode: 'universal',
+  // mode: 'spa',
   generate: {
     dir: 'docs'
+  },
+  router: {
+    base: '/LNShop/'
   },
   /*
   ** Headers of the page
@@ -54,6 +58,7 @@ export default {
   ** Build configuration
   */
   build: {
+    // publicPath: '/assets/',
     /*
     ** You can extend webpack config here
     */
