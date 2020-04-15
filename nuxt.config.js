@@ -1,6 +1,9 @@
 
 export default {
   mode: 'universal',
+  generate: {
+    dir: 'docs'
+  },
   /*
   ** Headers of the page
   */
