@@ -8,15 +8,18 @@
 </template>
 
 <script>
-  import Header from '~/components/Header'
-  import Footer from '~/components/Footer'
-  import CatalogBar from '~/components/CatalogBar'
+import Header from '~/components/Header'
+import Footer from '~/components/Footer'
+import CatalogBar from '~/components/CatalogBar'
 
-  export default {
-    components: {
-      Header, Footer, CatalogBar
-    }
+export default {
+  components: {
+    Header, Footer, CatalogBar
+  },
+  mounted() {
+
   }
+}
 </script>
 
 <style lang="sass">

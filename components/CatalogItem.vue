@@ -27,6 +27,7 @@ export default {
   methods: {
     goTo(article) {
       this.$router.push('/catalog/' + article)
+      // this.$router.push({ name: 'foo', params: {title: 'test title' }})
     }
   }
 

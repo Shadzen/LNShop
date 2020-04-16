@@ -8,6 +8,8 @@ section.container
 export default {
   validate({params}) {
     console.log('Params ID: ' + params.id)
+    console.log('Params: ' + params)
+    console.log(this.product)
 
     // if () {
       return true
@@ -26,6 +28,11 @@ export default {
   //     error(e)
   //   }
   // },
+  props: {
+    product: {
+      type: Object
+    }
+  },
   data() {
     return {
 

@@ -3,7 +3,7 @@ section.container
   .catalog
     .catalog__filter
       h2 ФИЛЬТР
-    CatalogItem(v-for="item of items.catalog" :key="item.article" :product="item")
+    CatalogItem(v-for="item of items" :key="item.article" :product="item")
 </template>
 
 <script>
@@ -14,28 +14,25 @@ export default {
   components: {
     CatalogItem
   },
-  async asyncData({$axios, error}) {
-    try {
-      const items = await $axios.$get('https://raw.githubusercontent.com/Shadzen/LNShop/master/static/catalog.json')
-      // console.log(items)
-      return {items}
-    } catch (e) {
-      error(e)
-    }
-  },
-  // async fetch({store, error}) {
+  // async asyncData({$axios, error}) {
   //   try {
-  //     if (store.getters['catalog/catalog'].length === 0) {
-  //       await store.dispatch('catalog/fetchCatalog')
-  //       // const test = {1:1}
-  //       // // test = catalog
-  //       //
-  //       // console.log(test)
-  //     }
+  //     // const items = await $axios.$get('https://raw.githubusercontent.com/Shadzen/LNShop/master/static/catalog.json')
+  //     const items = await $axios.$get('http://my-json-server.typicode.com/Shadzen/LNShop/catalog')
+  //     // console.log(items)
+  //     return {items}
   //   } catch (e) {
   //     error(e)
   //   }
   // },
+  async fetch({store, error}) {
+    try {
+      if (store.getters['catalog/catalog'].length === 0) {
+        await store.dispatch('catalog/fetchCatalog')
+      }
+    } catch (e) {
+      error(e)
+    }
+  },
   data() {
     return {
       // url: 'catalog.json',
@@ -43,11 +40,11 @@ export default {
       // items: this.$store.getters['catalog/catalog']
     }
   },
-  // computed: {
-  //   items() {
-  //     return this.$store.getters['catalog/catalog']
-  //   }
-  // },
+  computed: {
+    items() {
+      return this.$store.getters['catalog/catalog']
+    }
+  },
   methods: {
     // getData(url) {
     //   return fetch(url).then(d => d.json())
@@ -59,7 +56,7 @@ export default {
     //   .then(data => {this.items = data})
     // // this.items = ''
     // console.log(this.$store.getters['catalog/catalog'])
-    console.log(this.items)
+    // console.log(this.items)
     // console.log(JSON.stringify(JSON.parse(this.items)))
     // console.log(JSON.parse(this.items))
     // console.log('{"names": [{"Topo": "1", "Yolo": "2"}]}')

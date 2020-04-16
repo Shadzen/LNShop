@@ -1,7 +1,7 @@
 {
     "catalog": [
         {
-            "article": "7300328",
+            "id": "7300328",
             "category": "База",
             "subcategory": "База камуфляж",
             "brand": "ARTEX",
@@ -12,7 +12,7 @@
             "price": "950"
         },
         {
-            "article": "7010053",
+            "id": "7010053",
             "category": "Наращивание",
             "subcategory": "Акригель",
             "brand": "ARTEX",
@@ -22,7 +22,7 @@
             "price": "2850"
         },
         {
-            "article": "7010035",
+            "id": "7010035",
             "category": "Наращивание",
             "subcategory": "Акригель",
             "brand": "ARTEX",
@@ -32,7 +32,7 @@
             "price": "2850"
         },
         {
-            "article": "OTE-001",
+            "id": "OTE-001",
             "category": "Дизайн",
             "subcategory": "Стемпинг",
             "brand": "ONIQ",
@@ -43,7 +43,7 @@
             "price": "350"
         },
         {
-            "article": "OTE-002",
+            "id": "OTE-002",
             "category": "Дизайн",
             "subcategory": "Стемпинг",
             "brand": "ONIQ",
