@@ -70,4 +70,7 @@ button
   padding-left: 245px
   width: 100%
 
+/*.__nuxt-error-page*/
+/*  width: 100vw*/
+/*  height: 100vh*/
 </style>

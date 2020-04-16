@@ -2,15 +2,21 @@
 export default {
   mode: 'universal',
   // mode: 'spa',
-  generate: {
-    dir: 'docs'
-  },
-  router: {
-    base: '/LNShop/'
-  },
+  // generate: {
+  //   dir: 'docs'
+  // },
+  // router: {
+  //   base: '/LNShop/'
+  // },
   /*
   ** Headers of the page
   */
+  // vue: {
+  //   config: {
+  //     productionTip: false,
+  //     devtools: true
+  //   }
+  // },
   head: {
     title: 'Lucky Nails Shop' || process.env.npm_package_name,
     meta: [
@@ -26,7 +32,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#000' },
+  loading: { color: 'blue' },
   /*
   ** Global CSS
   */
@@ -46,13 +52,17 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/axios',
   ],
   styleResources: {
     sass: [
       '~/assets/sass/_variables.sass',
       '~/assets/sass/_mixins.sass'
     ]
+  },
+  axios: {
+    // proxyHeaders: false
   },
   /*
   ** Build configuration

@@ -3,24 +3,51 @@ section.container
   .catalog
     .catalog__filter
       h2 ФИЛЬТР
-    CatalogItem(v-for="item of items" :key="item.article" :product="item")
+    CatalogItem(v-for="item of items.catalog" :key="item.article" :product="item")
 </template>
 
 <script>
 import CatalogItem from '~/components/CatalogItem'
-import catalog from '~/static/catalog.json'
+// import catalog from '~/static/catalog.json'
 
 export default {
   components: {
     CatalogItem
   },
+  async asyncData({$axios, error}) {
+    try {
+      const items = await $axios.$get('https://raw.githubusercontent.com/Shadzen/LNShop/master/static/catalog.json')
+      // console.log(items)
+      return {items}
+    } catch (e) {
+      error(e)
+    }
+  },
+  // async fetch({store, error}) {
+  //   try {
+  //     if (store.getters['catalog/catalog'].length === 0) {
+  //       await store.dispatch('catalog/fetchCatalog')
+  //       // const test = {1:1}
+  //       // // test = catalog
+  //       //
+  //       // console.log(test)
+  //     }
+  //   } catch (e) {
+  //     error(e)
+  //   }
+  // },
   data() {
     return {
       // url: 'catalog.json',
       // items: [],
-      items: catalog.catalog,
+      // items: this.$store.getters['catalog/catalog']
     }
   },
+  // computed: {
+  //   items() {
+  //     return this.$store.getters['catalog/catalog']
+  //   }
+  // },
   methods: {
     // getData(url) {
     //   return fetch(url).then(d => d.json())
@@ -31,7 +58,14 @@ export default {
     // this.getData(this.url)
     //   .then(data => {this.items = data})
     // // this.items = ''
-    // console.log(this.items)
+    // console.log(this.$store.getters['catalog/catalog'])
+    console.log(this.items)
+    // console.log(JSON.stringify(JSON.parse(this.items)))
+    // console.log(JSON.parse(this.items))
+    // console.log('{"names": [{"Topo": "1", "Yolo": "2"}]}')
+    // console.log(JSON.parse('{"names": [{"Topo": "1", "Yolo": "2"}]}'))
+    // let test = JSON.parse('this: 1')
+    // console.log((JSON.parse('this: 1'))
   }
 }
 </script>

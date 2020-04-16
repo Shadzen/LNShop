@@ -1,10 +1,10 @@
 <template lang="pug">
-.catalog-item
+a.catalog-item(href="#" @click.prevent="goTo(product.article)")
   .catalog-item-image
     img(:src="'/images/catalog/' + product.article + '/1.jpg'" :alt="product.name")
   article.catalog-item-description
     h4.catalog-item-brand {{product.brand}}
-    p.catalog-item-name {{product.name}}
+    p.catalog-item-name {{product.name}} {{product.volume}} {{product.color}}
   span.catalog-item-control
     span.catalog-item-price {{product.price}} P
     span.catalog-item-toCartBtn В тележку
@@ -15,15 +15,21 @@
   //
 export default {
   props: {
-    itemImg: {
-      type: String,
-      default: 'https://placehold.it/200x150'
-      // default: '~static/images/catalog' +
-    },
+    // itemImg: {
+    //   type: String,
+    //   default: 'https://placehold.it/200x150'
+    //   // default: '~static/images/catalog' +
+    // },
     product: {
       type: Object
     }
   },
+  methods: {
+    goTo(article) {
+      this.$router.push('/catalog/' + article)
+    }
+  }
+
   // async mounted() {
   //   console.log('ready')
   //   console.log(await request('https://sheet.zoho.com/api/v2/kehoh1ffc573c47c445dfb938957b42844a5b', 'POST', 'method=worksheet.records.fetch&worksheet_name=catalog&worksheet_id=&header_row=&criteria=&column_names=&render_option=&start_index=&count=&is_case_sensitive='))
